@@ -13,18 +13,11 @@ order by 1,2
 
 
 Select Location, date, total_cases, total_deaths,
-(cast(total_deaths as decimal))/(cast(total_cases as decimal))*100 as DeathPercentage
-FROM PortfolioProject5..CovidDeaths
-Where location like '%Peru%'
-order by 1,2
-
-Select Location, date, total_cases, total_deaths,
 (CONVERT(float,total_deaths)/NULLIF(CONVERT(float,total_cases),0))*100 as DeathPercentage
 FROM PortfolioProject5..CovidDeaths
 Where location like '%Afghanistan%'
 order by 1,2
 
-set sql_mode= '';alter table PortfolioProject5.coviddeaths change column total_cases total_deaths int;
 
 ----Shows likelihood of dying if you contract covid in USA
 Select Location, date, total_cases,total_deaths, 
